@@ -4,9 +4,11 @@ pygame.init()
 
 screen_width = 1280
 screen_height = 720
+fps = 60
 
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Jumper")
+clock = pygame.time.Clock()
 running = True
 
 player_size = 15
@@ -33,14 +35,14 @@ while running:
 
     x += dx    
 
-    player = pygame.Rect(x, screen_height - 50 - player_size, player_size, player_size)
+    player = pygame.Rect(x, screen_height - 50 - player_size * 3, player_size, player_size * 3)
 
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_RIGHT]:
-        dx = 1
+        dx = 5
     elif keys[pygame.K_LEFT]:
-        dx = -1
+        dx = -5
     else:
         dx = 0
 
@@ -50,6 +52,8 @@ while running:
     pygame.draw.rect(screen, green, player)
 
     pygame.display.flip()
+
+    dt = clock.tick(fps) / 1000
 
 
 
