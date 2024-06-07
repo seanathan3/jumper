@@ -1,4 +1,5 @@
 import pygame
+from player import Player
 
 pygame.init()
 
@@ -25,7 +26,7 @@ y = 0
 dx = 0
 dy = 0
 
-player = pygame.Rect(10, screen_height - 50 - player_size, player_size, player_size)
+player = Player(5, 5, 5, blue)
 ground = pygame.Rect(0, screen_height - 50, screen_width, 50)
 
 while running:
